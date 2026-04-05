@@ -116,7 +116,6 @@ export function OurWorkContent() {
                             className="relative w-full max-w-2xl overflow-hidden rounded-2xl bg-card border border-border shadow-2xl"
                             onClick={(e) => e.stopPropagation()}
                         >
-                            {/* Header image area */}
                             <div className="relative aspect-[4/2] bg-gradient-to-br from-primary/20 via-primary/10 to-accent/20">
                                 <div className="absolute inset-0 flex items-center justify-center">
                                     <Image
