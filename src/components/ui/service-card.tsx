@@ -8,6 +8,7 @@ import {
     Search,
     Code2,
     Server,
+    ArrowRight,
     type LucideIcon,
 } from "lucide-react";
 import { motion } from "framer-motion";
@@ -25,12 +26,13 @@ const iconMap: Record<string, LucideIcon> = {
 
 interface ServiceCardProps {
     title: string;
+    slug: string;
     icon: string;
     short: string;
     index?: number;
 }
 
-export function ServiceCard({ title, icon, short, index = 0 }: ServiceCardProps) {
+export function ServiceCard({ title, slug, icon, short, index = 0 }: ServiceCardProps) {
     const Icon = iconMap[icon] ?? Globe;
 
     return (
@@ -40,7 +42,7 @@ export function ServiceCard({ title, icon, short, index = 0 }: ServiceCardProps)
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.5, delay: index * 0.08 }}
         >
-            <Link href="/services" className="group block h-full">
+            <Link href={`/services/${slug}`} className="group block h-full">
                 <div className="relative h-full overflow-hidden rounded-2xl border border-border bg-card p-8 transition-all duration-300 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5">
                     {/* Gradient glow on hover */}
                     <div className="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-primary/5 transition-transform duration-500 group-hover:scale-[2.5]" />
@@ -50,6 +52,15 @@ export function ServiceCard({ title, icon, short, index = 0 }: ServiceCardProps)
                         </div>
                         <h3 className="mb-2 text-lg font-semibold tracking-tight">{title}</h3>
                         <p className="text-sm leading-relaxed text-muted-foreground">{short}</p>
+
+                        {/* Learn More arrow */}
+                        <div className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-primary opacity-0 transition-all duration-300 group-hover:opacity-100">
+                            Learn More
+                            <ArrowRight
+                                size={14}
+                                className="transition-transform duration-300 group-hover:translate-x-1"
+                            />
+                        </div>
                     </div>
                 </div>
             </Link>

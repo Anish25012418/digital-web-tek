@@ -11,6 +11,7 @@ import { TestimonialCard } from "@/components/ui/testimonial-card";
 import { CTASection } from "@/components/ui/cta-section";
 import { MotionWrapper } from "@/components/animations/motion-wrapper";
 import { services, projects, testimonials, stats, siteConfig } from "@/lib/constants";
+import Image from "next/image";
 
 export default function HomePage() {
   return (
@@ -95,7 +96,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════ Stats ═══════════ */}
-      <section className="border-y border-border bg-card/50">
+      {/* <section className="border-y border-border bg-card/50">
         <div className="mx-auto max-w-7xl px-6 py-16">
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
             {stats.map((stat, i) => (
@@ -108,10 +109,10 @@ export default function HomePage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ═══════════ Services Preview ═══════════ */}
-      <section className="py-24 lg:py-32">
+      <section className="py-15 border-y border-border">
         <div className="mx-auto max-w-7xl px-6">
           <SectionHeading
             badge="What We Do"
@@ -134,7 +135,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════ Why Choose Us ═══════════ */}
-      <section className="bg-card/50 py-24 lg:py-32">
+      <section className="bg-card/50 py-15">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
             <div>
@@ -145,7 +146,6 @@ export default function HomePage() {
               />
               <div className="mt-8 space-y-5">
                 {[
-                  "Proven track record with 200+ successful projects delivered",
                   "Agile development methodology for rapid, transparent delivery",
                   "Full-stack team of designers, developers, and strategists",
                   "Post-launch support and performance monitoring included",
@@ -166,13 +166,18 @@ export default function HomePage() {
               </MotionWrapper>
             </div>
             <MotionWrapper variant="fadeRight" delay={0.2}>
-              <div className="relative aspect-square overflow-hidden rounded-3xl bg-gradient-to-br from-primary/20 via-primary/10 to-accent/20">
-                <div className="absolute inset-0 flex items-center justify-center">
+              <div className="relative aspect-square overflow-hidden rounded-3xl">
+                <Image
+                  src="/img_1.png"
+                  alt="Logo"
+                  fill
+                />
+                {/* <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center">
                     <p className="text-7xl font-extrabold text-primary/20">DWT</p>
                     <p className="mt-2 text-sm text-muted-foreground">Digital Web Tek</p>
                   </div>
-                </div>
+                </div> */}
               </div>
             </MotionWrapper>
           </div>
@@ -180,7 +185,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════ Featured Projects ═══════════ */}
-      <section className="py-24 lg:py-32">
+      <section className="py-15">
         <div className="mx-auto max-w-7xl px-6">
           <SectionHeading
             badge="Our Work"
@@ -203,7 +208,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════ Testimonials ═══════════ */}
-      <section className="bg-card/50 py-24 lg:py-32">
+      <section className="bg-card/50 py-15">
         <div className="mx-auto max-w-7xl px-6">
           <SectionHeading
             badge="Testimonials"

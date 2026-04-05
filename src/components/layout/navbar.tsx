@@ -9,6 +9,7 @@ import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import { navLinks, siteConfig } from "@/lib/constants";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 export function Navbar() {
     const pathname = usePathname();
@@ -39,13 +40,18 @@ export function Navbar() {
         >
             <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
                 {/* ── Logo ── */}
-                <Link href="/" className="flex items-center gap-2 group">
-                    <div className="relative flex h-10 w-10 items-center justify-center rounded-lg bg-primary transition-transform duration-300 group-hover:scale-105">
-                        <span className="text-lg font-extrabold text-primary-foreground">D</span>
+                <Link href="/" className="flex items-center gap-1.5 group">
+                    {/* <Image
+                        src="/logo.png"
+                        alt="Logo"
+                        width={240}
+                        height={40}
+                        className="object-contain absolute left-[-10] top-[-80]"
+                    /> */}
+                    <div className="flex p-1 items-center justify-center rounded-lg bg-primary transition-transform duration-300 group-hover:scale-105">
+                        <span className="text-lg font-extrabold text-primary-foreground">DIGITAL</span>
                     </div>
-                    <span className="text-xl font-bold tracking-tight text-foreground">
-                        {siteConfig.name}
-                    </span>
+                    <div className="text-lg font-extrabold transition-transform duration-300 group-hover:scale-105">WEB TEK</div>
                 </Link>
 
                 {/* ── Desktop Links ── */}

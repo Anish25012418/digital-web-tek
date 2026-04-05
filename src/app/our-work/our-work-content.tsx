@@ -8,6 +8,7 @@ import { ProjectCard } from "@/components/ui/project-card";
 import { CTASection } from "@/components/ui/cta-section";
 import { MotionWrapper } from "@/components/animations/motion-wrapper";
 import { projects } from "@/lib/constants";
+import Image from "next/image";
 
 const categories = [
     "All",
@@ -56,8 +57,8 @@ export function OurWorkContent() {
                                     key={cat}
                                     onClick={() => setActiveCategory(cat)}
                                     className={`rounded-full px-5 py-2 text-sm font-medium transition-all ${activeCategory === cat
-                                            ? "bg-primary text-primary-foreground shadow-md"
-                                            : "bg-card text-muted-foreground hover:bg-accent hover:text-foreground border border-border"
+                                        ? "bg-primary text-primary-foreground shadow-md"
+                                        : "bg-card text-muted-foreground hover:bg-accent hover:text-foreground border border-border"
                                         }`}
                                 >
                                     {cat}
@@ -116,11 +117,13 @@ export function OurWorkContent() {
                             onClick={(e) => e.stopPropagation()}
                         >
                             {/* Header image area */}
-                            <div className="relative aspect-video bg-gradient-to-br from-primary/20 via-primary/10 to-accent/20">
+                            <div className="relative aspect-[4/2] bg-gradient-to-br from-primary/20 via-primary/10 to-accent/20">
                                 <div className="absolute inset-0 flex items-center justify-center">
-                                    <span className="text-6xl font-bold text-primary/20">
-                                        {selectedProject.title.charAt(0)}
-                                    </span>
+                                    <Image
+                                        src={selectedProject.image}
+                                        alt={`Logo${selectedProject.title}`}
+                                        fill
+                                    />
                                 </div>
                                 <button
                                     onClick={() => setSelectedProject(null)}
@@ -137,11 +140,10 @@ export function OurWorkContent() {
                                 <p className="mt-4 leading-relaxed text-muted-foreground">
                                     {selectedProject.description}
                                 </p>
-                                <div className="mt-6 grid grid-cols-3 gap-4 text-center">
+                                <div className="mt-6 grid grid-cols-2 gap-4 text-center">
                                     {[
-                                        { label: "Duration", value: "8 weeks" },
-                                        { label: "Team Size", value: "5 people" },
-                                        { label: "Tech Stack", value: "Next.js" },
+                                        { label: "Duration", value: selectedProject.duration },
+                                        { label: "Tech Stack", value: selectedProject.tech_stack },
                                     ].map((item) => (
                                         <div key={item.label} className="rounded-xl bg-muted/50 p-3">
                                             <p className="text-lg font-bold text-primary">{item.value}</p>

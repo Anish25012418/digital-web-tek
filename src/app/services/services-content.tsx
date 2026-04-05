@@ -1,31 +1,10 @@
 "use client";
 
-import {
-    Globe,
-    Palette,
-    AppWindow,
-    Smartphone,
-    Search,
-    Code2,
-    Server,
-    type LucideIcon,
-} from "lucide-react";
-import { motion } from "framer-motion";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ServiceCard } from "@/components/ui/service-card";
 import { CTASection } from "@/components/ui/cta-section";
 import { MotionWrapper } from "@/components/animations/motion-wrapper";
 import { services, processSteps } from "@/lib/constants";
-
-const iconMap: Record<string, LucideIcon> = {
-    Globe,
-    Palette,
-    AppWindow,
-    Smartphone,
-    Search,
-    Code2,
-    Server,
-};
 
 export function ServicesContent() {
     return (
@@ -53,7 +32,7 @@ export function ServicesContent() {
             </section>
 
             {/* ── Service Cards Grid ── */}
-            <section className="py-20 lg:py-28">
+            <section className="py-15">
                 <div className="mx-auto max-w-7xl px-6">
                     <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                         {services.map((service, i) => (
@@ -63,48 +42,8 @@ export function ServicesContent() {
                 </div>
             </section>
 
-            {/* ── Detailed Service Sections ── */}
-            <section className="bg-card/50 py-20 lg:py-28">
-                <div className="mx-auto max-w-7xl px-6 space-y-24">
-                    {services.map((service, i) => {
-                        const Icon = iconMap[service.icon] ?? Globe;
-                        const isReversed = i % 2 !== 0;
-                        return (
-                            <motion.div
-                                key={service.slug}
-                                initial={{ opacity: 0, y: 40 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, margin: "-60px" }}
-                                transition={{ duration: 0.6 }}
-                                className={`grid gap-12 lg:grid-cols-2 lg:items-center ${isReversed ? "lg:[direction:rtl]" : ""
-                                    }`}
-                            >
-                                <div className={isReversed ? "lg:[direction:ltr]" : ""}>
-                                    <div className="mb-4 inline-flex rounded-xl bg-primary/10 p-3.5 text-primary">
-                                        <Icon size={28} strokeWidth={1.8} />
-                                    </div>
-                                    <h3 className="text-2xl font-bold tracking-tight sm:text-3xl">
-                                        {service.title}
-                                    </h3>
-                                    <p className="mt-4 leading-relaxed text-muted-foreground">
-                                        {service.description}
-                                    </p>
-                                </div>
-                                <div className={isReversed ? "lg:[direction:ltr]" : ""}>
-                                    <div className="aspect-[4/3] overflow-hidden rounded-2xl bg-gradient-to-br from-primary/15 via-primary/5 to-accent/10">
-                                        <div className="flex h-full items-center justify-center">
-                                            <Icon size={64} className="text-primary/15" strokeWidth={1} />
-                                        </div>
-                                    </div>
-                                </div>
-                            </motion.div>
-                        );
-                    })}
-                </div>
-            </section>
-
             {/* ── Process / Workflow ── */}
-            <section className="py-20 lg:py-28">
+            <section className="bg-card/50 py-15">
                 <div className="mx-auto max-w-5xl px-6">
                     <SectionHeading
                         badge="Our Process"
@@ -115,11 +54,9 @@ export function ServicesContent() {
                         {processSteps.map((step, i) => (
                             <MotionWrapper key={step.step} variant="fadeUp" delay={i * 0.1}>
                                 <div className="relative flex gap-6 pb-12 last:pb-0">
-                                    {/* Timeline line */}
                                     {i < processSteps.length - 1 && (
                                         <div className="absolute left-6 top-14 h-full w-px bg-border" />
                                     )}
-                                    {/* Step number */}
                                     <div className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground">
                                         {step.step}
                                     </div>

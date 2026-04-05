@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Facebook, Twitter, Instagram, Linkedin, ArrowUpRight } from "lucide-react";
-import { siteConfig, navLinks, services } from "@/lib/constants";
+import { siteConfig, navLinks, services, contactInfo } from "@/lib/constants";
 
 export function Footer() {
     const currentYear = new Date().getFullYear();
@@ -12,10 +12,10 @@ export function Footer() {
                     {/* ── Company Info ── */}
                     <div className="space-y-4">
                         <Link href="/" className="flex items-center gap-2">
-                            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
-                                <span className="text-lg font-extrabold text-primary-foreground">D</span>
+                            <div className="flex p-1 items-center justify-center rounded-lg bg-primary transition-transform duration-300 group-hover:scale-105">
+                                <span className="text-lg font-extrabold text-primary-foreground">DIGITAL</span>
                             </div>
-                            <span className="text-xl font-bold tracking-tight">{siteConfig.name}</span>
+                            <div className="text-lg font-extrabold transition-transform duration-300 group-hover:scale-105">WEB TEK</div>
                         </Link>
                         <p className="text-sm leading-relaxed text-muted-foreground">
                             {siteConfig.description}
@@ -70,10 +70,10 @@ export function Footer() {
                             Services
                         </h4>
                         <ul className="space-y-3">
-                            {services.slice(0, 5).map((service) => (
+                            {services.slice(0, 6).map((service) => (
                                 <li key={service.slug}>
                                     <Link
-                                        href="/services"
+                                        href={`/services/${service.slug}`}
                                         className="group flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-primary"
                                     >
                                         {service.title}
@@ -96,19 +96,17 @@ export function Footer() {
                             <li>
                                 <span className="font-medium text-foreground">Email</span>
                                 <br />
-                                info@digitalwebtek.com
+                                {contactInfo.email}
                             </li>
                             <li>
                                 <span className="font-medium text-foreground">Phone</span>
                                 <br />
-                                +1 (555) 123-4567
+                                {contactInfo.phone}
                             </li>
                             <li>
                                 <span className="font-medium text-foreground">Address</span>
                                 <br />
-                                123 Innovation Drive
-                                <br />
-                                Tech City, TC 10001
+                                {contactInfo.address}
                             </li>
                         </ul>
                     </div>

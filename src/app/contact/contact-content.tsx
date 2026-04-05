@@ -22,7 +22,7 @@ import {
     type ContactFormData,
     type QuoteFormData,
 } from "@/lib/validations";
-import { services } from "@/lib/constants";
+import { contactInfo, services } from "@/lib/constants";
 
 export function ContactContent() {
     return (
@@ -54,9 +54,9 @@ export function ContactContent() {
                 <div className="mx-auto max-w-7xl px-6">
                     <div className="grid gap-6 sm:grid-cols-3">
                         {[
-                            { icon: Mail, label: "Email", value: "info@digitalwebtek.com" },
-                            { icon: Phone, label: "Phone", value: "+1 (555) 123-4567" },
-                            { icon: MapPin, label: "Address", value: "123 Innovation Drive, Tech City" },
+                            { icon: Mail, label: "Email", value: contactInfo.email },
+                            { icon: Phone, label: "Phone", value: contactInfo.phone },
+                            { icon: MapPin, label: "Address", value: contactInfo.address },
                         ].map((item, i) => (
                             <MotionWrapper key={item.label} variant="fadeUp" delay={i * 0.1}>
                                 <div className="flex items-start gap-4 rounded-2xl border border-border bg-card p-6 transition-all hover:border-primary/20 hover:shadow-lg hover:shadow-primary/5">
@@ -155,7 +155,7 @@ function ContactForm() {
                 </div>
                 <div>
                     <Select onValueChange={(v) => setValue("service", v)}>
-                        <SelectTrigger>
+                        <SelectTrigger className="w-full">
                             <SelectValue placeholder="Service Required" />
                         </SelectTrigger>
                         <SelectContent>
@@ -240,7 +240,7 @@ function QuoteForm() {
                 </div>
                 <div>
                     <Select onValueChange={(v) => setValue("projectType", v)}>
-                        <SelectTrigger>
+                        <SelectTrigger className="w-full">
                             <SelectValue placeholder="Project Type" />
                         </SelectTrigger>
                         <SelectContent>
@@ -255,37 +255,39 @@ function QuoteForm() {
                         <p className="mt-1 text-xs text-destructive">{errors.projectType.message}</p>
                     )}
                 </div>
-                <div>
-                    <Select onValueChange={(v) => setValue("budget", v)}>
-                        <SelectTrigger>
-                            <SelectValue placeholder="Budget Range" />
-                        </SelectTrigger>
-                        <SelectContent>
-                            <SelectItem value="under-5k">Under $5,000</SelectItem>
-                            <SelectItem value="5k-15k">$5,000 – $15,000</SelectItem>
-                            <SelectItem value="15k-50k">$15,000 – $50,000</SelectItem>
-                            <SelectItem value="50k-plus">$50,000+</SelectItem>
-                        </SelectContent>
-                    </Select>
-                    {errors.budget && (
-                        <p className="mt-1 text-xs text-destructive">{errors.budget.message}</p>
-                    )}
-                </div>
-                <div>
-                    <Select onValueChange={(v) => setValue("timeline", v)}>
-                        <SelectTrigger>
-                            <SelectValue placeholder="Expected Timeline" />
-                        </SelectTrigger>
-                        <SelectContent>
-                            <SelectItem value="asap">ASAP</SelectItem>
-                            <SelectItem value="1-3months">1 – 3 months</SelectItem>
-                            <SelectItem value="3-6months">3 – 6 months</SelectItem>
-                            <SelectItem value="6months-plus">6+ months</SelectItem>
-                        </SelectContent>
-                    </Select>
-                    {errors.timeline && (
-                        <p className="mt-1 text-xs text-destructive">{errors.timeline.message}</p>
-                    )}
+                <div className="flex flex-row gap-2">
+                    <div className="w-1/2">
+                        <Select onValueChange={(v) => setValue("budget", v)}>
+                            <SelectTrigger className="w-full">
+                                <SelectValue placeholder="Budget Range" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectItem value="under-5k">Under $5,000</SelectItem>
+                                <SelectItem value="5k-15k">$5,000 – $15,000</SelectItem>
+                                <SelectItem value="15k-50k">$15,000 – $50,000</SelectItem>
+                                <SelectItem value="50k-plus">$50,000+</SelectItem>
+                            </SelectContent>
+                        </Select>
+                        {errors.budget && (
+                            <p className="mt-1 text-xs text-destructive">{errors.budget.message}</p>
+                        )}
+                    </div>
+                    <div className="w-1/2">
+                        <Select onValueChange={(v) => setValue("timeline", v)}>
+                            <SelectTrigger className="w-full">
+                                <SelectValue placeholder="Expected Timeline" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectItem value="asap">ASAP</SelectItem>
+                                <SelectItem value="1-3months">1 – 3 months</SelectItem>
+                                <SelectItem value="3-6months">3 – 6 months</SelectItem>
+                                <SelectItem value="6months-plus">6+ months</SelectItem>
+                            </SelectContent>
+                        </Select>
+                        {errors.timeline && (
+                            <p className="mt-1 text-xs text-destructive">{errors.timeline.message}</p>
+                        )}
+                    </div>
                 </div>
                 <div>
                     <Textarea

@@ -7,6 +7,7 @@ import { CTASection } from "@/components/ui/cta-section";
 import { MotionWrapper } from "@/components/animations/motion-wrapper";
 import { teamMembers, coreValues, stats } from "@/lib/constants";
 import type { LucideIcon } from "lucide-react";
+import Image from "next/image";
 
 const valueIconMap: Record<string, LucideIcon> = {
     Lightbulb,
@@ -41,14 +42,16 @@ export function AboutContent() {
             </section>
 
             {/* ── Company Story ── */}
-            <section className="py-20 lg:py-28">
+            <section className="py-15">
                 <div className="mx-auto max-w-7xl px-6">
-                    <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
+                    <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
                         <MotionWrapper variant="fadeLeft">
-                            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl bg-gradient-to-br from-primary/20 via-primary/10 to-accent/20">
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                    <p className="text-8xl font-extrabold text-primary/15">DWT</p>
-                                </div>
+                            <div className="relative aspect-[3/2] overflow-hidden rounded-3xl bg-[#f9d5fc]">
+                                <Image
+                                    src="/img_2.png"
+                                    alt="Logo"
+                                    fill
+                                />
                             </div>
                         </MotionWrapper>
                         <div>
@@ -67,7 +70,7 @@ export function AboutContent() {
                                         startups, SMBs, and enterprises around the globe.
                                     </p>
                                     <p>
-                                        Over the years, we&apos;ve delivered 200+ projects across industries — from
+                                        Over the years, we&apos;ve delivered many projects across industries — from
                                         fintech dashboards and health-tech platforms to e-commerce powerhouses and
                                         mobile-first experiences. Our clients partner with us not just because we
                                         write great code, but because we genuinely care about their outcomes.
@@ -80,7 +83,7 @@ export function AboutContent() {
             </section>
 
             {/* ── Mission & Vision ── */}
-            <section className="bg-card/50 py-20 lg:py-28">
+            <section className="bg-card/50 py-15">
                 <div className="mx-auto max-w-5xl px-6">
                     <SectionHeading badge="Purpose" title="Mission & Vision" />
                     <div className="mt-14 grid gap-8 md:grid-cols-2">
@@ -111,7 +114,7 @@ export function AboutContent() {
             </section>
 
             {/* ── Stats ── */}
-            <section className="border-y border-border">
+            {/* <section className="border-y border-border">
                 <div className="mx-auto max-w-7xl px-6 py-16">
                     <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
                         {stats.map((stat, i) => (
@@ -124,10 +127,10 @@ export function AboutContent() {
                         ))}
                     </div>
                 </div>
-            </section>
+            </section> */}
 
             {/* ── Team ── */}
-            <section className="py-20 lg:py-28">
+            {/* <section className="py-20 lg:py-28">
                 <div className="mx-auto max-w-7xl px-6">
                     <SectionHeading
                         badge="Our Team"
@@ -161,10 +164,10 @@ export function AboutContent() {
                         ))}
                     </div>
                 </div>
-            </section>
+            </section> */}
 
             {/* ── Core Values ── */}
-            <section className="bg-card/50 py-20 lg:py-28">
+            <section className="py-15">
                 <div className="mx-auto max-w-7xl px-6">
                     <SectionHeading
                         badge="Core Values"
