@@ -9,7 +9,7 @@ import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import { navLinks, siteConfig } from "@/lib/constants";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
+import { Logo } from "@/components/ui/logo";
 
 export function Navbar() {
     const pathname = usePathname();
@@ -40,18 +40,8 @@ export function Navbar() {
         >
             <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
                 {/* ── Logo ── */}
-                <Link href="/" className="flex items-center gap-1.5 group">
-                    {/* <Image
-                        src="/logo.png"
-                        alt="Logo"
-                        width={240}
-                        height={40}
-                        className="object-contain absolute left-[-10] top-[-80]"
-                    /> */}
-                    <div className="flex p-1 items-center justify-center rounded-lg bg-primary transition-transform duration-300 group-hover:scale-105">
-                        <span className="text-lg font-extrabold text-primary-foreground">DIGITAL</span>
-                    </div>
-                    <div className="text-lg font-extrabold transition-transform duration-300 group-hover:scale-105">WEB TEK</div>
+                <Link href="/" className="flex items-center group scale-[0.6] sm:scale-75 origin-left">
+                    <Logo />
                 </Link>
 
                 {/* ── Desktop Links ── */}

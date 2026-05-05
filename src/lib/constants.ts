@@ -29,7 +29,7 @@ export const services = [
         title: "Software Development",
         slug: "software-development",
         icon: "Code2",
-        image: "/img_3.jpg",
+        image: "/services/software-development.jpg",
         short: "Bespoke software solutions tailored to your unique processes.",
         description:
             "From CRMs to ERPs, we architect, develop, and maintain custom software that automates workflows, reduces costs, and scales with your business.",
@@ -48,7 +48,7 @@ export const services = [
         title: "Web Applications",
         slug: "web-applications",
         icon: "AppWindow",
-        image: "/img_4.jpg",
+        image: "/services/web-application.jpg",
         short: "Scalable SaaS products and internal tools engineered for growth.",
         description:
             "Leveraging React, Next.js, Node and cloud-native architectures, we build robust web apps that handle millions of interactions.",
@@ -67,7 +67,7 @@ export const services = [
         title: "Mobile Applications",
         slug: "mobile-applications",
         icon: "Smartphone",
-        image: "/img_5.jpg",
+        image: "/services/mobile-application.jpg",
         short: "Native-quality iOS & Android apps from a single codebase.",
         description:
             "Using React Native and Flutter, we deliver cross-platform mobile experiences with native performance, offline support, and push notifications.",
@@ -86,7 +86,7 @@ export const services = [
         title: "Website Development",
         slug: "website-development",
         icon: "Globe",
-        image: "/img_16.jpeg",
+        image: "/services/web-design.jpeg",
         short: "Custom, performance-optimised websites that convert visitors into customers.",
         description:
             "From single-page landing sites to enterprise content platforms, we build pixel-perfect, lightning-fast websites on modern frameworks so every visit counts.",
@@ -105,7 +105,7 @@ export const services = [
         title: "Web Hosting",
         slug: "web-hosting",
         icon: "Server",
-        image: "/img_7.jpg",
+        image: "/services/web-hosting.jpeg",
         short: "Managed cloud hosting with 99.99% uptime and 24/7 monitoring.",
         description:
             "We provision, optimise, and monitor your infrastructure on AWS, GCP, or Azure so you can focus on your business while we handle the ops.",
@@ -124,7 +124,7 @@ export const services = [
         title: "SEO Optimisation",
         slug: "seo-optimisation",
         icon: "Search",
-        image: "/img_8.jpg",
+        image: "/services/seo.jpeg",
         short: "Data-driven strategies that put you on page one — and keep you there.",
         description:
             "Technical audits, keyword research, on-page optimisation, and authoritative link-building work together to grow your organic traffic month over month.",
@@ -143,7 +143,7 @@ export const services = [
         title: "UI/UX Design",
         slug: "ui-ux-design",
         icon: "Palette",
-        image: "/img_9.jpg",
+        image: "/services/ui-ux.jpg",
         short: "Research-led interfaces that delight users and drive engagement.",
         description:
             "We blend user research, wireframing, and high-fidelity prototyping to craft intuitive experiences that keep your audience coming back.",

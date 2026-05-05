@@ -1,0 +1,30 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Primary Color Globe -->
+  <g transform="translate(50, 50)" style="stroke: #8a2be2; fill: none; stroke-width: 4px;">
+    <g>
+      <!-- Rotation Animation -->
+      <animateTransform 
+        attributeName="transform" 
+        type="rotate" 
+        from="0" 
+        to="360" 
+        dur="20s" 
+        repeatCount="indefinite" />
+        
+      <!-- Fade in/out Animation -->
+      <animate 
+        attributeName="opacity" 
+        values="0.4;1;0.4" 
+        dur="3s" 
+        repeatCount="indefinite" />
+
+      <circle cx="0" cy="0" r="44" />
+      <ellipse cx="0" cy="0" rx="30" ry="44" />
+      <ellipse cx="0" cy="0" rx="12" ry="44" />
+      <ellipse cx="0" cy="0" rx="44" ry="30" />
+      <ellipse cx="0" cy="0" rx="44" ry="12" />
+      <path d="M -30 -30 L 30 30" stroke-width="2" opacity="0.5" />
+      <path d="M 30 -30 L -30 30" stroke-width="2" opacity="0.5" />
+    </g>
+  </g>
+</svg>

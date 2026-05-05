@@ -17,55 +17,130 @@ export default function HomePage() {
   return (
     <>
       {/* ═══════════ Hero ═══════════ */}
-      <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
-        {/* Background mesh */}
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/5" />
-        <div className="absolute right-0 top-0 h-[600px] w-[600px] rounded-full bg-primary/5 blur-[120px]" />
-        <div className="absolute bottom-0 left-0 h-[400px] w-[400px] rounded-full bg-primary/8 blur-[100px]" />
+      <section className="relative flex min-h-[90vh] md:min-h-screen items-center justify-center overflow-hidden bg-[#1c2237]">
+        {/* Background Gradients */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#2a3352] via-[#1c2237] to-[#151929]" />
+        
+        {/* Glowing orbs */}
+        <div className="absolute right-[20%] top-[10%] h-[400px] w-[400px] rounded-full bg-[#9f7aea]/10 blur-[120px]" />
+        <div className="absolute bottom-[10%] left-[20%] h-[300px] w-[300px] rounded-full bg-[#4fd1c5]/10 blur-[100px]" />
 
-        {/* Subtle grid pattern */}
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage:
-              "linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
-        />
+        {/* Floating Element 1: Browser Window (Top Left) */}
+        <motion.div
+          initial={{ opacity: 0, x: -50, y: -50 }}
+          animate={{ opacity: 1, x: 0, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="absolute left-[-10%] md:left-[5%] top-[10%] md:top-[15%] w-48 md:w-64 opacity-50 rotate-[-15deg] pointer-events-none"
+        >
+          <svg viewBox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg" className="drop-shadow-2xl">
+            <rect x="0" y="0" width="200" height="150" rx="10" fill="#ffffff" fillOpacity="0.05" stroke="#ffffff" strokeOpacity="0.1" strokeWidth="2"/>
+            <path d="M0 10C0 4.477 4.477 0 10 0H190C195.523 0 200 4.477 200 10V30H0V10Z" fill="#ffffff" fillOpacity="0.1"/>
+            <circle cx="20" cy="15" r="4" fill="#f56565"/>
+            <circle cx="35" cy="15" r="4" fill="#ecc94b"/>
+            <circle cx="50" cy="15" r="4" fill="#48bb78"/>
+            <rect x="20" y="50" width="120" height="4" rx="2" fill="#4fd1c5" fillOpacity="0.8"/>
+            <rect x="20" y="65" width="160" height="4" rx="2" fill="#9f7aea" fillOpacity="0.8"/>
+            <rect x="20" y="80" width="140" height="4" rx="2" fill="#f687b3" fillOpacity="0.8"/>
+          </svg>
+        </motion.div>
 
-        <div className="relative z-10 mx-auto max-w-5xl px-6 py-32 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: [0.25, 0.4, 0.25, 1] }}
-          >
-            <span className="mb-6 inline-block rounded-full border border-primary/20 bg-primary/5 px-5 py-2 text-sm font-medium text-primary">
-              🚀 {siteConfig.tagline}
-            </span>
-          </motion.div>
+        {/* Floating Element 2: Mobile Phone (Bottom Left) */}
+        <motion.div
+          initial={{ opacity: 0, x: -50, y: 50 }}
+          animate={{ opacity: 1, x: 0, y: 0 }}
+          transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+          className="absolute left-[5%] md:left-[10%] bottom-[10%] md:bottom-[15%] w-32 md:w-40 opacity-60 rotate-[15deg] pointer-events-none"
+        >
+          <svg viewBox="0 0 100 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="drop-shadow-2xl">
+            <rect x="0" y="0" width="100" height="200" rx="20" fill="#ffffff" fillOpacity="0.05" stroke="#ffffff" strokeOpacity="0.1" strokeWidth="2"/>
+            <rect x="5" y="5" width="90" height="190" rx="15" fill="#ffffff" fillOpacity="0.05"/>
+            <rect x="35" y="10" width="30" height="4" rx="2" fill="#ffffff" fillOpacity="0.2"/>
+            {/* Code Brackets */}
+            <path d="M35 85L20 100L35 115" stroke="#9f7aea" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M65 85L80 100L65 115" stroke="#9f7aea" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M55 75L45 125" stroke="#f687b3" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </motion.div>
 
+        {/* Floating Element 3: Wireframe Globe (Top Right) */}
+        <motion.div
+          initial={{ opacity: 0, x: 50, y: -50 }}
+          animate={{ opacity: 1, x: 0, y: 0 }}
+          transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
+          className="absolute right-[-5%] md:right-[10%] top-[15%] md:top-[20%] w-40 md:w-56 opacity-50 pointer-events-none"
+        >
+          <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="100" cy="100" r="90" stroke="#4fd1c5" strokeWidth="1" strokeDasharray="4 4" opacity="0.5"/>
+            <ellipse cx="100" cy="100" rx="90" ry="30" stroke="#9f7aea" strokeWidth="1" opacity="0.6" transform="rotate(45 100 100)"/>
+            <ellipse cx="100" cy="100" rx="90" ry="30" stroke="#f687b3" strokeWidth="1" opacity="0.6" transform="rotate(-45 100 100)"/>
+            <circle cx="100" cy="100" r="8" fill="#4fd1c5" opacity="0.8"/>
+          </svg>
+        </motion.div>
+
+        {/* Floating Element 4: Bar Chart & Network (Bottom Right) */}
+        <motion.div
+          initial={{ opacity: 0, x: 50, y: 50 }}
+          animate={{ opacity: 1, x: 0, y: 0 }}
+          transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
+          className="absolute right-[5%] md:right-[10%] bottom-[10%] md:bottom-[15%] w-40 md:w-56 opacity-60 flex flex-col gap-8 pointer-events-none"
+        >
+          {/* Network Graph */}
+          <div className="ml-10 rotate-[-10deg]">
+             <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-20 h-20 md:w-24 md:h-24">
+                <path d="M20 50L50 80L80 20M50 80L90 70" stroke="#4fd1c5" strokeWidth="2" strokeOpacity="0.5"/>
+                <circle cx="20" cy="50" r="5" fill="#9f7aea"/>
+                <circle cx="50" cy="80" r="5" fill="#4fd1c5"/>
+                <circle cx="80" cy="20" r="5" fill="#f687b3"/>
+                <circle cx="90" cy="70" r="5" fill="#9f7aea"/>
+             </svg>
+          </div>
+          {/* Bar Chart */}
+          <div className="rotate-[10deg]">
+            <svg viewBox="0 0 150 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-28 h-20 md:w-32 md:h-24">
+              <rect x="10" y="50" width="20" height="40" rx="4" fill="#9f7aea" fillOpacity="0.8"/>
+              <rect x="40" y="30" width="20" height="60" rx="4" fill="#f687b3" fillOpacity="0.8"/>
+              <rect x="70" y="10" width="20" height="80" rx="4" fill="#4fd1c5" fillOpacity="0.8"/>
+              <rect x="100" y="40" width="20" height="50" rx="4" fill="#667eea" fillOpacity="0.8"/>
+            </svg>
+          </div>
+        </motion.div>
+
+        {/* Small decorative stars/clouds */}
+        <div className="absolute top-[30%] left-[25%] w-2 h-2 rounded-full bg-white/20 pointer-events-none" />
+        <div className="absolute top-[15%] right-[30%] w-3 h-3 rounded-full bg-white/10 pointer-events-none" />
+        <div className="absolute bottom-[30%] left-[40%] w-1.5 h-1.5 rounded-full bg-white/20 pointer-events-none" />
+        
+        {/* Tiny Cloud SVG */}
+        <div className="absolute bottom-[25%] right-[25%] opacity-20 pointer-events-none">
+          <svg width="40" height="25" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+             <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/>
+          </svg>
+        </div>
+
+        <div className="relative z-10 mx-auto max-w-4xl px-6 py-24 md:py-32 text-center mt-[-40px]">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.4, 0.25, 1] }}
-            className="text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
+            className="text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl md:text-6xl lg:text-7xl text-white"
           >
-            We Build Digital
-            <br />
-            <span className="bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">
-              Experiences That Matter
+            We Build Digital{" "}
+            <span className="bg-gradient-to-r from-[#b379ff] to-[#ff8c42] bg-clip-text text-transparent">
+              Experiences
             </span>
+            <br />
+            That Matter
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.4, 0.25, 1] }}
-            className="mx-auto mt-6 max-w-2xl text-base text-muted-foreground sm:text-lg lg:text-xl"
+            className="mx-auto mt-6 max-w-2xl text-sm sm:text-base lg:text-lg text-gray-300"
           >
             From stunning websites to powerful applications, we craft bespoke digital solutions
-            that help startups & enterprises{" "}
-            <span className="text-foreground font-medium">grow, engage, and lead</span>.
+            that help startups and enterprises{" "}
+            <span className="text-white font-medium">grow, engage, and lead</span>.
           </motion.p>
 
           <motion.div
@@ -74,20 +149,16 @@ export default function HomePage() {
             transition={{ duration: 0.7, delay: 0.35, ease: [0.25, 0.4, 0.25, 1] }}
             className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
           >
-            <Button asChild size="lg" className="rounded-full px-8 text-base font-semibold">
+            <Button asChild size="lg" className="rounded-full px-8 text-sm font-semibold bg-gradient-to-r from-[#d946ef] to-[#ec4899] hover:from-[#c026d3] hover:to-[#db2777] text-white border-0 transition-transform hover:scale-105">
               <Link href="/contact" className="group">
                 Get a Quote
-                <ArrowRight
-                  size={18}
-                  className="ml-2 transition-transform group-hover:translate-x-1"
-                />
               </Link>
             </Button>
             <Button
               asChild
               variant="outline"
               size="lg"
-              className="rounded-full px-8 text-base font-semibold"
+              className="rounded-full px-8 text-sm font-semibold border-white/20 text-white hover:bg-white/10 bg-transparent transition-transform hover:scale-105"
             >
               <Link href="/our-work">View Our Work</Link>
             </Button>

@@ -71,7 +71,7 @@ export function ServiceDetailContent({ service }: ServiceDetailContentProps) {
 
                     <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
                         <MotionWrapper variant="fadeLeft">
-                            <div className="relative aspect-[3/2] overflow-hidden rounded-3xl bg-[#f9d5fc]">
+                            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl bg-[#f9d5fc]">
                                 <Image
                                     src={service.image}
                                     alt={`Logo${service.title}`}

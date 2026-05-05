@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Facebook, Twitter, Instagram, Linkedin, ArrowUpRight } from "lucide-react";
 import { siteConfig, navLinks, services, contactInfo } from "@/lib/constants";
+import { Logo } from "@/components/ui/logo";
 
 export function Footer() {
     const currentYear = new Date().getFullYear();
@@ -11,11 +12,8 @@ export function Footer() {
                 <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
                     {/* ── Company Info ── */}
                     <div className="space-y-4">
-                        <Link href="/" className="flex items-center gap-2">
-                            <div className="flex p-1 items-center justify-center rounded-lg bg-primary transition-transform duration-300 group-hover:scale-105">
-                                <span className="text-lg font-extrabold text-primary-foreground">DIGITAL</span>
-                            </div>
-                            <div className="text-lg font-extrabold transition-transform duration-300 group-hover:scale-105">WEB TEK</div>
+                        <Link href="/" className="flex items-center group scale-[0.6] sm:scale-[0.65] origin-left">
+                            <Logo />
                         </Link>
                         <p className="text-sm leading-relaxed text-muted-foreground">
                             {siteConfig.description}
