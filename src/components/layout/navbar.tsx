@@ -18,6 +18,11 @@ export function Navbar() {
     const { theme, setTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
 
+    // Whether we're on the homepage (which has the dark hero section)
+    const isHomePage = pathname === "/";
+    // Show "hero" (white) variant only when on homepage AND not scrolled
+    const isHeroState = isHomePage && !scrolled;
+
     useEffect(() => setMounted(true), []);
 
     useEffect(() => {
@@ -41,7 +46,7 @@ export function Navbar() {
             <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
                 {/* ── Logo ── */}
                 <Link href="/" className="flex items-center group scale-[0.6] sm:scale-75 origin-left">
-                    <Logo />
+                    <Logo variant={isHeroState ? "hero" : "default"} />
                 </Link>
 
                 {/* ── Desktop Links ── */}
@@ -51,10 +56,12 @@ export function Navbar() {
                             key={link.href}
                             href={link.href}
                             className={cn(
-                                "relative px-4 py-2 text-sm font-medium transition-colors rounded-lg",
+                                "relative px-4 py-2 text-base font-medium transition-colors duration-300 rounded-lg",
                                 pathname === link.href
                                     ? "text-primary"
-                                    : "text-muted-foreground hover:text-foreground"
+                                    : isHeroState
+                                        ? "text-white/90 hover:text-white"
+                                        : "text-muted-foreground hover:text-foreground"
                             )}
                         >
                             {link.label}
@@ -73,10 +80,15 @@ export function Navbar() {
                 <div className="hidden items-center gap-3 lg:flex">
                     <button
                         onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                        className="rounded-lg p-2 text-muted-foreground transition-colors hover:text-foreground hover:bg-accent"
+                        className={cn(
+                            "rounded-lg p-2.5 transition-colors duration-300",
+                            isHeroState
+                                ? "text-white/90 hover:text-white hover:bg-white/10"
+                                : "text-muted-foreground hover:text-foreground hover:bg-accent"
+                        )}
                         aria-label="Toggle theme"
                     >
-                        {mounted && (theme === "dark" ? <Sun size={18} /> : <Moon size={18} />)}
+                        {mounted && (theme === "dark" ? <Sun size={22} /> : <Moon size={22} />)}
                     </button>
                     <Button asChild size="sm" className="rounded-full px-6">
                         <Link href="/contact">Get a Quote</Link>
@@ -87,14 +99,22 @@ export function Navbar() {
                 <div className="flex items-center gap-2 lg:hidden">
                     <button
                         onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                        className="rounded-lg p-2 text-muted-foreground transition-colors hover:text-foreground"
+                        className={cn(
+                            "rounded-lg p-2 transition-colors duration-300",
+                            isHeroState
+                                ? "text-white/90 hover:text-white"
+                                : "text-muted-foreground hover:text-foreground"
+                        )}
                         aria-label="Toggle theme"
                     >
                         {mounted && (theme === "dark" ? <Sun size={18} /> : <Moon size={18} />)}
                     </button>
                     <button
                         onClick={() => setMobileOpen(!mobileOpen)}
-                        className="rounded-lg p-2 text-foreground"
+                        className={cn(
+                            "rounded-lg p-2 transition-colors duration-300",
+                            isHeroState ? "text-white" : "text-foreground"
+                        )}
                         aria-label="Toggle menu"
                     >
                         {mobileOpen ? <X size={22} /> : <Menu size={22} />}

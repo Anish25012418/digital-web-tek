@@ -3,7 +3,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-export const Logo = () => {
+interface LogoProps {
+  /** When true, renders the globe wireframe in white instead of navy */
+  variant?: 'default' | 'hero';
+}
+
+export const Logo = ({ variant = 'default' }: LogoProps) => {
+  const globeColor = variant === 'hero' ? 'white' : 'navy';
+
   return (
     <div className="relative flex flex-col items-center justify-center w-[170px] h-[136px] group cursor-pointer">
       <svg viewBox="0 0 200 160" className="w-full h-full overflow-visible">
@@ -20,7 +27,7 @@ export const Logo = () => {
           }}
         >
           {/* Globe wireframe rings, radius 40 to avoid overlap with text */}
-          <g style={{ stroke: 'navy', fill: 'none', strokeWidth: 1.2 }}>
+          <g style={{ stroke: globeColor, fill: 'none', strokeWidth: 1.2 }}>
             <circle cx="0" cy="0" r="40" />
             <ellipse cx="0" cy="0" rx="30" ry="40" />
             <ellipse cx="0" cy="0" rx="15" ry="40" />
@@ -40,8 +47,8 @@ export const Logo = () => {
            </textPath>
         </text>
         
-        {/* Bottom Text */}
-        <text x="100" y="155" textAnchor="middle" className="font-black fill-primary" style={{ fontSize: '11px', letterSpacing: '0.2em' }}>
+        {/* Bottom Text — increased size */}
+        <text x="100" y="157" textAnchor="middle" className="font-black fill-primary" style={{ fontSize: '16px', letterSpacing: '0.2em' }}>
           BUILD. GROW. SCALE.
         </text>
       </svg>
