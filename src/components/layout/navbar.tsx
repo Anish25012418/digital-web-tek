@@ -43,7 +43,7 @@ export function Navbar() {
                     : "bg-transparent"
             )}
         >
-            <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+            <nav className="mx-auto flex max-w-7xl items-center justify-between px-6">
                 {/* ── Logo ── */}
                 <Link href="/" className="flex items-center group scale-[0.6] sm:scale-75 origin-left">
                     <Logo variant={isHeroState ? "hero" : "default"} />

@@ -91,7 +91,7 @@ export default function RootLayout({
         <ThemeProvider>
           <AnimatedFavicon />
           <Navbar />
-          <main className="min-h-screen">{children}</main>
+          <main className="min-h-screen pt-[72px]">{children}</main>
           <Footer />
           <Toaster position="top-right" richColors />
         </ThemeProvider>

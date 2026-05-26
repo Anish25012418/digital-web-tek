@@ -28,7 +28,7 @@ export function ContactContent() {
     return (
         <>
             {/* ── Hero ── */}
-            <section className="relative overflow-hidden pt-32 pb-20 lg:pt-40 lg:pb-28">
+            <section className="bg-[#E6E6FA] dark:bg-transparent relative overflow-hidden pt-32 pb-20 lg:pt-40 lg:pb-28 -mt-[72px]">
                 <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent" />
                 <div className="relative mx-auto max-w-4xl px-6 text-center">
                     <MotionWrapper variant="fadeUp">
@@ -50,7 +50,7 @@ export function ContactContent() {
             </section>
 
             {/* ── Contact Info Cards ── */}
-            <section className="pb-12">
+            <section className="bg-[#E6E6FA] dark:bg-transparent pb-12">
                 <div className="mx-auto max-w-7xl px-6">
                     <div className="grid gap-6 sm:grid-cols-3">
                         {[
@@ -75,7 +75,7 @@ export function ContactContent() {
             </section>
 
             {/* ── Forms Grid ── */}
-            <section className="py-12 lg:py-20">
+            <section className="bg-card/50 py-12 lg:py-20">
                 <div className="mx-auto max-w-7xl px-6">
                     <div className="grid gap-12 lg:grid-cols-2">
                         {/* Contact Form */}
@@ -99,6 +99,7 @@ export function ContactContent() {
    ═══════════════════════════════════════════════════════ */
 function ContactForm() {
     const [loading, setLoading] = useState(false);
+    const [formKey, setFormKey] = useState(0);
     const {
         register,
         handleSubmit,
@@ -120,6 +121,7 @@ function ContactForm() {
             if (!res.ok) throw new Error("Failed to send");
             toast.success("Message sent! We'll get back to you within 24 hours.");
             reset();
+            setFormKey((k) => k + 1);
         } catch {
             toast.error("Something went wrong. Please try again.");
         } finally {
@@ -154,7 +156,7 @@ function ContactForm() {
                     )}
                 </div>
                 <div>
-                    <Select onValueChange={(v) => setValue("service", v)}>
+                    <Select key={formKey} onValueChange={(v) => setValue("service", v)}>
                         <SelectTrigger className="w-full">
                             <SelectValue placeholder="Service Required" />
                         </SelectTrigger>
@@ -190,6 +192,7 @@ function ContactForm() {
    ═══════════════════════════════════════════════════════ */
 function QuoteForm() {
     const [loading, setLoading] = useState(false);
+    const [formKey, setFormKey] = useState(0);
     const {
         register,
         handleSubmit,
@@ -211,6 +214,7 @@ function QuoteForm() {
             if (!res.ok) throw new Error("Failed to send");
             toast.success("Quote request received! We'll prepare your estimate shortly.");
             reset();
+            setFormKey((k) => k + 1);
         } catch {
             toast.error("Something went wrong. Please try again.");
         } finally {
@@ -239,7 +243,7 @@ function QuoteForm() {
                     )}
                 </div>
                 <div>
-                    <Select onValueChange={(v) => setValue("projectType", v)}>
+                    <Select key={`project-${formKey}`} onValueChange={(v) => setValue("projectType", v)}>
                         <SelectTrigger className="w-full">
                             <SelectValue placeholder="Project Type" />
                         </SelectTrigger>
@@ -257,7 +261,7 @@ function QuoteForm() {
                 </div>
                 <div className="flex flex-row gap-2">
                     <div className="w-1/2">
-                        <Select onValueChange={(v) => setValue("budget", v)}>
+                        <Select key={`budget-${formKey}`} onValueChange={(v) => setValue("budget", v)}>
                             <SelectTrigger className="w-full">
                                 <SelectValue placeholder="Budget Range" />
                             </SelectTrigger>
@@ -273,7 +277,7 @@ function QuoteForm() {
                         )}
                     </div>
                     <div className="w-1/2">
-                        <Select onValueChange={(v) => setValue("timeline", v)}>
+                        <Select key={`timeline-${formKey}`} onValueChange={(v) => setValue("timeline", v)}>
                             <SelectTrigger className="w-full">
                                 <SelectValue placeholder="Expected Timeline" />
                             </SelectTrigger>

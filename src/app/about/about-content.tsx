@@ -20,7 +20,7 @@ export function AboutContent() {
     return (
         <>
             {/* ── Page Hero ── */}
-            <section className="relative overflow-hidden pt-32 pb-20 lg:pt-40 lg:pb-28">
+            <section className="bg-[#E6E6FA] dark:bg-transparent relative overflow-hidden pt-32 pb-20 lg:pt-40 lg:pb-28 -mt-[72px]">
                 <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent" />
                 <div className="relative mx-auto max-w-4xl px-6 text-center">
                     <MotionWrapper variant="fadeUp">
@@ -42,7 +42,7 @@ export function AboutContent() {
             </section>
 
             {/* ── Company Story ── */}
-            <section className="py-15">
+            <section className="py-15 bg-[#E6E6FA] dark:bg-transparent">
                 <div className="mx-auto max-w-7xl px-6">
                     <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
                         <MotionWrapper variant="fadeLeft">
@@ -167,7 +167,7 @@ export function AboutContent() {
             </section> */}
 
             {/* ── Core Values ── */}
-            <section className="py-15">
+            <section className="py-15 bg-[#E6E6FA] dark:bg-transparent">
                 <div className="mx-auto max-w-7xl px-6">
                     <SectionHeading
                         badge="Core Values"

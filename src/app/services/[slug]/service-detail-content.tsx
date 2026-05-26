@@ -51,7 +51,7 @@ export function ServiceDetailContent({ service }: ServiceDetailContentProps) {
     return (
         <>
             {/* ── Hero ── */}
-            <section className="relative overflow-hidden pt-32 pb-20 lg:pt-40 lg:pb-28">
+            <section className="relative overflow-hidden pt-32 pb-20 lg:pt-40 lg:pb-28 -mt-[72px]">
                 <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent" />
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_-10%,rgba(var(--primary-rgb,124,58,237),0.08),transparent)]" />
 

@@ -27,7 +27,7 @@ export function OurWorkContent() {
     return (
         <>
             {/* ── Hero ── */}
-            <section className="relative overflow-hidden pt-32 pb-20 lg:pt-40 lg:pb-28">
+            <section className="bg-[#E6E6FA] dark:bg-transparent relative overflow-hidden pt-32 pb-20 lg:pt-40 lg:pb-28 -mt-[72px]">
                 <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent" />
                 <div className="relative mx-auto max-w-4xl px-6 text-center">
                     <MotionWrapper variant="fadeUp">
@@ -48,7 +48,7 @@ export function OurWorkContent() {
             </section>
 
             {/* ── Filter Tabs ── */}
-            <section className="pb-8">
+            <section className="pb-8 bg-[#E6E6FA] dark:bg-transparent">
                 <div className="mx-auto max-w-7xl px-6">
                     <MotionWrapper variant="fadeUp" delay={0.2}>
                         <div className="flex flex-wrap justify-center gap-2">
@@ -70,7 +70,7 @@ export function OurWorkContent() {
             </section>
 
             {/* ── Project Grid ── */}
-            <section className="py-12 lg:py-20">
+            <section className="py-12 lg:py-20 bg-[#E6E6FA] dark:bg-transparent">
                 <div className="mx-auto max-w-7xl px-6">
                     <motion.div
                         layout

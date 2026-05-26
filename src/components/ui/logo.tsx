@@ -1,57 +1,88 @@
 "use client";
 
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { motion } from "framer-motion";
 
 interface LogoProps {
-  /** When true, renders the globe wireframe in white instead of navy */
-  variant?: 'default' | 'hero';
+  /** Width (and height) of the logo in pixels */
+  size?: number;
+  /** 'hero' renders the globe in white for dark/hero backgrounds */
+  variant?: "default" | "hero";
+  className?: string;
 }
 
-export const Logo = ({ variant = 'default' }: LogoProps) => {
-  const globeColor = variant === 'hero' ? 'white' : 'navy';
+export const Logo = ({ size = 220, variant = "default", className = "" }: LogoProps) => {
+  const globeColor = "#F97316"  // orange variant === "hero" ? "#ffffff" : "#F97316";
+  const topColor = "#5B5EF4"; // blue-purple
+  const bottomColor = "#5B5EF4"; // near-black
+  const font = "'Arial Black', 'Impact', sans-serif";
 
   return (
-    <div className="relative flex flex-col items-center justify-center w-[170px] h-[136px] group cursor-pointer">
-      <svg viewBox="0 0 200 160" className="w-full h-full overflow-visible">
-        {/* Animated Globe */}
-        <motion.g
-          initial={{ x: 100, y: 87.5 }}
-          animate={{
-            rotate: 360,
-            opacity: [0.4, 1, 0.4]
-          }}
-          transition={{
-            rotate: { duration: 20, repeat: Infinity, ease: "linear" },
-            opacity: { duration: 3, repeat: Infinity, ease: "easeInOut" }
-          }}
+    <div
+      className={`inline-flex items-center justify-center cursor-pointer ${className}`}
+      style={{ width: size, height: size }}
+    >
+      <svg
+        viewBox="0 0 220 220"
+        width={size}
+        height={size}
+        xmlns="http://www.w3.org/2000/svg"
+        overflow="visible"
+      >
+        {/* ── TOP ARC: "DIGITAL WEB TEK" ── */}
+        <path id="top-arc" fill="none" d="M 18 138 A 95 95 0 1 1 202 138" />
+        <text
+          fontFamily={font}
+          fontWeight="900"
+          fontSize="19.5"
+          fill={topColor}
+          letterSpacing="3"
         >
-          {/* Globe wireframe rings, radius 40 to avoid overlap with text */}
-          <g style={{ stroke: globeColor, fill: 'none', strokeWidth: 1.2 }}>
-            <circle cx="0" cy="0" r="40" />
-            <ellipse cx="0" cy="0" rx="30" ry="40" />
-            <ellipse cx="0" cy="0" rx="15" ry="40" />
-            <ellipse cx="0" cy="0" rx="40" ry="30" />
-            <ellipse cx="0" cy="0" rx="40" ry="15" />
-            {/* Optional crosslines for more globe effect */}
-            <path d="M -28 -28 L 28 28" strokeWidth="0.8" opacity="0.5" />
-            <path d="M 28 -28 L -28 28" strokeWidth="0.8" opacity="0.5" />
-          </g>
-        </motion.g>
+          <textPath href="#top-arc" startOffset="50%" textAnchor="middle">
+            DIGITAL WEB TEK
+          </textPath>
+        </text>
 
-        {/* Circular Text */}
-        <path id="curve" fill="transparent" d="M 15 130 A 85 85 0 1 1 185 130" />
-        <text className="font-extrabold fill-primary" style={{ fontSize: '22px', letterSpacing: '4px' }}>
-           <textPath href="#curve" startOffset="50%" textAnchor="middle">
-             DIGITAL WEB TEK
-           </textPath>
+        {/* ── BOTTOM ARC: "BUILD. GROW. SCALE." ── */}
+        <path id="bottom-arc" fill="none" d="M 18 81 A 92 92 0 0 0 202 81" />
+        <text
+          fontFamily={font}
+          fontWeight="900"
+          fontSize="14.5"
+          fill={bottomColor}
+          letterSpacing="2"
+        >
+          <textPath href="#bottom-arc" startOffset="50%" textAnchor="middle">
+            BUILD. GROW. SCALE.
+          </textPath>
         </text>
-        
-        {/* Bottom Text — increased size */}
-        <text x="100" y="157" textAnchor="middle" className="font-black fill-primary" style={{ fontSize: '16px', letterSpacing: '0.2em' }}>
-          BUILD. GROW. SCALE.
-        </text>
+
+        {/* ── GLOBE WIREFRAME (center 110, 108) ── */}
+        {/* Outer g positions the globe; inner motion.g rotates around local (0,0) */}
+        <g transform="translate(110, 90)">
+          <motion.g
+            animate={{ rotate: 360 }}
+            transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
+            fill="none"
+            stroke={globeColor}
+            strokeWidth="1.3"
+          >
+            {/* outer circle */}
+            <circle cx="0" cy="0" r="58" />
+
+            {/* longitude ellipses at 30° intervals */}
+            {[0, 30, 60, 90, 120, 150].map((deg) => (
+              <React.Fragment key={deg}>
+                <ellipse cx="0" cy="0" rx="58" ry="46" transform={`rotate(${deg})`} />
+                <ellipse cx="0" cy="0" rx="58" ry="34" transform={`rotate(${deg})`} />
+                <ellipse cx="0" cy="0" rx="58" ry="20" transform={`rotate(${deg})`} />
+              </React.Fragment>
+            ))}
+          </motion.g>
+        </g>
       </svg>
     </div>
   );
 };
+
+export default Logo;

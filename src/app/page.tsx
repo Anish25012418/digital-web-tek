@@ -17,7 +17,7 @@ export default function HomePage() {
   return (
     <>
       {/* ═══════════ Hero ═══════════ */}
-      <section className="relative flex min-h-[90vh] md:min-h-screen items-center justify-center overflow-hidden bg-[#1c2237]">
+      <section className="relative flex min-h-[90vh] md:min-h-screen items-center justify-center overflow-hidden bg-[#1c2237] -mt-[72px] pt-[72px]">
         {/* Background Gradients */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#2a3352] via-[#1c2237] to-[#151929]" />
 
@@ -65,7 +65,7 @@ export default function HomePage() {
         >
           {/* Network Graph */}
           <div className="ml-10 rotate-[-45deg]">
-            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-20 h-20 md:w-24 md:h-24">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-20 h-20 md:w-24 md:h-30">
               <path d="M20 50L50 80L80 20M50 80L90 70" stroke="#4fd1c5" strokeWidth="2" strokeOpacity="0.5" />
               <circle cx="20" cy="50" r="5" fill="#9f7aea" />
               <circle cx="50" cy="80" r="5" fill="#4fd1c5" />
@@ -129,7 +129,7 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.4, 0.25, 1] }}
-            className="text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl md:text-6xl lg:text-7xl text-white"
+            className="text-4xl font-extrabold leading-tight tracking-tight sm:text-4xl md:text-5xl lg:text-6xl text-white"
           >
             We Build Digital{" "}
             <span className="bg-gradient-to-r from-[#b379ff] to-[#ff8c42] bg-clip-text text-transparent">
@@ -156,7 +156,7 @@ export default function HomePage() {
             transition={{ duration: 0.7, delay: 0.35, ease: [0.25, 0.4, 0.25, 1] }}
             className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
           >
-            <Button asChild size="lg" className="rounded-full px-8 text-sm font-semibold bg-gradient-to-r from-[#d946ef] to-[#ec4899] hover:from-[#c026d3] hover:to-[#db2777] text-white border-0 transition-transform hover:scale-105">
+            <Button asChild size="2xl" className="w-full md:w-1/3 rounded-full px-8 text-sm font-semibold bg-gradient-to-r from-[#d946ef] to-[#ec4899] hover:from-[#c026d3] hover:to-[#db2777] text-white border-0 transition-transform hover:scale-105">
               <Link href="/contact" className="group">
                 Get a Quote
               </Link>
@@ -164,8 +164,8 @@ export default function HomePage() {
             <Button
               asChild
               variant="outline"
-              size="lg"
-              className="rounded-full px-8 text-sm font-semibold border-white/20 text-white hover:bg-white/10 bg-transparent transition-transform hover:scale-105"
+              size="2xl"
+              className="w-full md:w-1/3 rounded-full px-8 text-sm font-semibold border-white/20 text-white hover:bg-white/10 bg-transparent transition-transform hover:scale-105"
             >
               <Link href="/our-work">View Our Work</Link>
             </Button>
@@ -190,7 +190,7 @@ export default function HomePage() {
       </section> */}
 
       {/* ═══════════ Services Preview ═══════════ */}
-      <section className="py-15 border-y border-border">
+      <section className="bg-[#E6E6FA] dark:bg-transparent py-15">
         <div className="mx-auto max-w-7xl px-6">
           <SectionHeading
             badge="What We Do"
@@ -263,7 +263,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════ Featured Projects ═══════════ */}
-      <section className="py-15">
+      <section className="bg-[#E6E6FA] dark:bg-transparent py-15">
         <div className="mx-auto max-w-7xl px-6">
           <SectionHeading
             badge="Our Work"

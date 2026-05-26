@@ -39,7 +39,9 @@ export async function POST(req: Request) {
             },
         });
 
-        const adminEmail = process.env.ADMIN_EMAIL || "admin@digitalwebtek.com";
+        const adminEmail = process.env.ADMIN_EMAIL;
+        const secondEmail = process.env.SECOND_EMAIL;
+
         const isContact = type === "contact";
 
         const subject = isContact
@@ -69,7 +71,8 @@ export async function POST(req: Request) {
 
         await transporter.sendMail({
             from: `"${data.name}" <${process.env.SMTP_USER || "noreply@digitalwebtek.com"}>`,
-            to: adminEmail,
+            to: `${adminEmail}, ${secondEmail}`,
+            replyTo: `"${data.name}" <${data.email}>`,
             subject,
             html: htmlBody,
         });
