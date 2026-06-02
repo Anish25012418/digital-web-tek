@@ -23,7 +23,7 @@ export const Logo = ({ size = 220, variant = "default", className = "" }: LogoPr
       style={{ width: size, height: size }}
     >
       <svg
-        viewBox="0 0 220 220"
+        viewBox="0 0 192 192"
         width={size}
         height={size}
         xmlns="http://www.w3.org/2000/svg"
